@@ -41,6 +41,20 @@ export default function TodoModal({
         handleClose();
     };
 
+    const AddSaveBtn = () => (
+        <>
+            {id === -1 ? (
+                <Button variant="primary" onClick={onAddClick}>
+                    Add
+                </Button>
+            ) : (
+                <Button variant="primary" onClick={onSaveClick}>
+                    Save Changes
+                </Button>
+            )}
+        </>
+    );
+
     return (
         <>
             <Modal show={show} onHide={handleClose}>
@@ -86,15 +100,7 @@ export default function TodoModal({
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    {id === -1 ? (
-                        <Button variant="primary" onClick={onAddClick}>
-                            Add
-                        </Button>
-                    ) : (
-                        <Button variant="primary" onClick={onSaveClick}>
-                            Save Changes
-                        </Button>
-                    )}
+                    <AddSaveBtn />
                 </Modal.Footer>
             </Modal>
         </>
